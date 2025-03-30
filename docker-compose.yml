@@ -1,0 +1,57 @@
+services:
+  master:
+   build: 
+    dockerfile: Dockerfile
+   networks:
+    - net
+   container_name: Master
+   hostname: master
+
+  worker1:
+   build: 
+    dockerfile: Dockerfile
+   networks:
+    - net
+   container_name: Worker-1
+   hostname: worker1
+
+  worker2:
+   build: 
+    dockerfile: Dockerfile
+   networks:
+    - net
+   container_name: Worker-2
+   hostname: worker2
+
+  worker3:
+   build: 
+    dockerfile: Dockerfile
+   networks:
+    - net
+   container_name: Worker-3
+   hostname: worker3
+
+  worker4:
+   build: 
+    dockerfile: Dockerfile
+   networks:
+    - net
+   container_name: Worker-4
+   hostname: worker4
+
+  worker5:
+   build: 
+    dockerfile: Dockerfile
+   networks:
+    - net
+   container_name: Worker-5
+   hostname: worker5
+
+networks:
+  net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.1.0/24
+
+# docker rmi k8s-worker{1..5} k8s-master:latest
